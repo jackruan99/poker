@@ -1,12 +1,10 @@
 # Source: https://briancaffey.github.io/2018/01/02/checking-poker-hands-with-python.html/
 from collections import defaultdict
 
+
 card_order_dict = {"2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "T":10,"J":11, "Q":12, "K":13, "A":14}
 
 def check_hand(hand):
-    # convert hand from list(Card) to list(str)
-    hand = [str(card) for card in hand]
-    # need to be converted into ["3S", "JC", "QD", "5D", "AH"] for input
     if check_straight_flush(hand):
         return 9
     if check_four_of_a_kind(hand):
@@ -97,4 +95,3 @@ def check_one_pair(hand):
         return True
     else:
         return False
-

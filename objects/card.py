@@ -3,7 +3,7 @@ class Card:
         self.value = value
         self.suit = suit
 
-    # 1: ace, ... , 10: 10, 11: jack, 12: queen, 13: king
+    # 2: 2, ... , 10: 10, 11: jack, 12: queen, 13: king, 14: ace
     def get_value(self):
         return self.value
 
@@ -12,8 +12,6 @@ class Card:
         return self.suit
 
     def __str__(self):
-        if self.value == 1:
-            return 'A' + self.suit
         if self.value == 10:
             return 'T' + self.suit
         if self.value == 11:
@@ -22,4 +20,6 @@ class Card:
             return 'Q' + self.suit
         if self.value == 13:
             return 'K' + self.suit
+        if self.value == 14:
+            return 'A' + self.suit
         return str(self.value) + self.suit
