@@ -11,9 +11,11 @@ class Card:
     def get_suit(self):
         return self.suit
 
-    def get_name(self):
+    def __str__(self):
         if self.value == 1:
             return 'A' + self.suit
+        if self.value == 10:
+            return 'T' + self.suit
         if self.value == 11:
             return 'J' + self.suit
         if self.value == 12:

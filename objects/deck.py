@@ -1,5 +1,4 @@
 import random
-
 from objects.card import Card
 
 
@@ -10,6 +9,3 @@ class Deck:
 
     def get_deck(self):
         return self.deck
-
-    def deal(self):
-        return self.deck.pop()
