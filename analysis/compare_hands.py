@@ -1,10 +1,30 @@
 # Source: https://briancaffey.github.io/2018/01/02/checking-poker-hands-with-python.html/
 from collections import defaultdict
 
+# TODO: Optimizing by calculate the rank of all hands at once 
+def compare_all_hands(hands):
+    winner = compare_two_hands(hands[0], hands[1])
+    for i in range(2, len(hands)):
+        winner = compare_two_hands(winner, hands[i])
+    return winner
+
+
+def compare_two_hands(hand1, hand2):
+    hand1_rank = check_hand_rank(hand1)
+    hand2_rank = check_hand_rank(hand2)
+    if hand1_rank > hand2_rank:
+        return hand1
+    elif hand1_rank < hand2_rank:
+        return hand2
+    # TODO: Check two hands that have the equal rank
+    
+
 
 card_order_dict = {"2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "T":10,"J":11, "Q":12, "K":13, "A":14}
 
-def check_hand(hand):
+# TODO: optimize by check the if it's high card first, then one_pair, two_pairs, ...
+# TODO: edit all the check functions to return either highest card or useful information for check two hands that have the equal rank
+def check_hand_rank(hand):
     if check_straight_flush(hand):
         return 9
     if check_four_of_a_kind(hand):
